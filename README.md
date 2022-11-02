@@ -85,3 +85,37 @@ Referrence: https://docs.osmosis.zone/beaker/#deploy-contract-on-localosmosis
 ```
 beaker wasm deploy counter --signer-account test1 --no-wasm-opt --raw '{ "count": 0 }'
 ``` 
+
+This CLI actions will perfrom 3 things. It `build` the contracts, `upload` the codeid and `instantiate` the contract. 
+
+This is what we get after the deployment 
+![plot](./assets/deployment.png)
+
+Deployment data will be stored on the .beaker folder. We've just deployed on the `LocalOsmosis`, so the data is stored on `state.local.json`. The `testnet.local.json` and `mainnet.local.json`  will be used to store data if you deploy on `testnet` and `mainnet`
+
+![plot](./assets/deployement_data.png)
+
+
+### Execute Contract Messages 
+- Execute 
+```
+beaker wasm execute counter --raw '{ "increment": {} }' --signer-account test1
+```
+
+- Query     
+```
+beaker wasm query counter --raw '{"get_count": {}}'
+```
+This should errors free, so you can just test and try it. 
+
+
+### Beaker Console 
+
+**_NOTE:_** Referrence: https://docs.osmosis.zone/beaker/#console
+
+Run `beaker console`, a prompt will pop up and ask you to generate Typescript of the project, press y to generate. 
+
+A console will show up, and now you can interact with the deployed contract. In this example, I interact with the `counter` contract i've just deployed on `LocalOsmosis`
+![plot](./assets/beaker_console.png)
+
+**_NOTE:_** You might get some issues with current version of `beaker`, something like `CounterContractContract` not found. You might need to fix the source code of the `beaker` themself. Please DM me if you get the issue and cannot resolve it
