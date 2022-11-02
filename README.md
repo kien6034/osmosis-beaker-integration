@@ -40,6 +40,8 @@ beaker new counter-dapp
 ``` 
 A command line prompt will show up and ask you to choose between mininal or counter-example template. If you choose the minimal, an empty work space structure will be provided and you need to add the contract in the following steps. If you choose the couter-example, an workspace with a counter-example contract + frontend will be generated. You can directly test beaker with this prebuild smartcontract
 
+![plot](./assets/beaker_new.png)
+
 Workspace structure will look like this
 ```
 .
